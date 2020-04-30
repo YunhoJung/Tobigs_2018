@@ -200,5 +200,3 @@ names(data2)
 # Z1=0 Z2=1 Z3=0 : Region = North Central
 # Z1=0 Z2=0 Z3=1 : Region = South
 ######################################################
-
-
