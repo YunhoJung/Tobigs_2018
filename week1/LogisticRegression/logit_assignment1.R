@@ -1,5 +1,5 @@
 # Assignment 1
-# After splitting BreastCancer data of mlbench package in the ration 7:3 for train set and test set respectively,
+# After splitting BreastCancer data of mlbench package into a train set and test set in a 7 to 3 ratio,
 # fit logistic regression and predict the target variable.
 # For accurate results, calculate the average of accuracy with random data partition 50 times
 
@@ -86,8 +86,8 @@ for(i in 1:50)
   BCtrain = BreastCancer[idx,]
   BCtest = BreastCancer[-idx,]
   BCtrain_up = upSample(subset(BCtrain, select=-Class), BCtrain$Class)
-  model.glm2 = glm(formula2, BCtrain_up, family=binomial) # ·ÎÁö½ºÆ½ È¸±Í ¸ðÇü¿¡ ÀûÇÕ
-  pred.glm2 = as.numeric(predict(model.glm2, BCtest, type="response") > 0.5) # ¿¹Ãø
+  model.glm2 = glm(formula2, BCtrain_up, family=binomial) # ??????Æ½ È¸?? ?????? ????
+  pred.glm2 = as.numeric(predict(model.glm2, BCtest, type="response") > 0.5) # ????
   result = confusionMatrix(as.factor(pred.glm2), BCtest$Class)
   accuracy = as.numeric(result$overall['Accuracy'])
   acc = acc + accuracy

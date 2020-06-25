@@ -12,9 +12,6 @@ library(caret)
 ## Data Load
 data(nodal)
 
-## Check NaN
-sum(is.na(nodal)) # 0, if NA, remove NA by row by using data <- na.omit(data)
-
 ## EDA
 str(nodal) # 53 obs. of  7 variables
 summary(nodal) # Min, 1st Qu, Median, Mean, 3rd Qu, Max
@@ -22,6 +19,9 @@ summary(nodal) # Min, 1st Qu, Median, Mean, 3rd Qu, Max
 
 table(nodal$m) # Needed to drop column m
 table(nodal$r) # Target variable
+
+## Check NaN
+sum(is.na(nodal)) # 0, if NA, remove NA by row by using data <- na.omit(data)
 
 ## Data Preprocessing
 nd = nodal[,-1]
@@ -45,13 +45,12 @@ predict(model, type = "response") # The output -> the values that went through t
 ## Data Load
 bank = read.csv("bank-additional.csv", sep = ";")
 
-## Check NaN
-sum(is.na(bank)) # 0, if NA, remove NA by row by using data <- na.omit(data)
-
 ## EDA
 str(bank) # 4119 obs. of  21 variables
 summary(bank) # Target valuable(no : 3668 yes : 451) -> Upsampling Needed
 
+## Check NaN
+sum(is.na(bank)) # 0, if NA, remove NA by row by using data <- na.omit(data)
 
 ## Data Preprocessing - Feature Selection by Hand
 select = colnames(bank)[c(1,2,3,6,7,8:10,12,15,17:19,21)]
@@ -63,7 +62,7 @@ bank = bank[select]
 bank$y = as.factor(ifelse(bank$y == "no",0,1)) # Target variable -> categorical variable
 str(bank)
 
-## train/test partition
+## Train/Test Partition
 idx = createDataPartition(bank$y, p = 0.7, list = F)
 banktrain = bank[idx,]
 banktest = bank[-idx,]
