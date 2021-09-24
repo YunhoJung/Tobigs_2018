@@ -1,6 +1,6 @@
 # Tobigs 2018
 * Big Data Analysis Club
-* [Link](http://www.datamarket.kr)
+* [http://www.datamarket.kr](http://www.datamarket.kr)
 
 ### Week 1
 * Linear Regression
